@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Montagne Sainte | Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f5f7fb; }
+    .bg-royal { background-color: #0d47a1 !important; }
+    .text-royal { color: #0d47a1; }
+    .card { border-radius: 18px; transition: transform .4s ease, box-shadow .4s ease; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,.15); }
+    .btn-royal { background-color: #0d47a1; color: #fff; }
+    .btn-royal:hover { background-color: #094080; color: #fff; }
+    footer { background-color: #0d47a1; color: #fff; padding: 30px 0; }
+    footer a { color: #fff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-royal">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Montagne Sainte - Admin</a>
+  </div>
+</nav>
+
+<!-- Section Admin -->
+<section id="admin" class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center text-royal mb-4">Administration - Gestion des Fidèles</h2>
+
+    <!-- Bouton Modal -->
+    <div class="text-center mb-4">
+      <button class="btn btn-royal btn-lg" data-bs-toggle="modal" data-bs-target="#addFideleModal">
+        ➕ Ajouter un fidèle
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addFideleModal" tabindex="-1" aria-labelledby="addFideleLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-royal text-white">
+            <h5 class="modal-title" id="addFideleLabel">Enregistrer un fidèle</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <form id="fideleForm">
+              <div class="mb-3">
+                <label class="form-label">Nom complet</label>
+                <input type="text" id="nom" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Âge</label>
+                <input type="number" id="age" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Ville / Quartier</label>
+                <input type="text" id="ville" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-royal w-100">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tableau des fidèles -->
+    <div class="table-responsive mt-4">
+      <table class="table table-striped table-bordered" id="tableFideles">
+        <thead class="bg-royal text-white">
+          <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Âge</th>
+            <th>Ville</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Graphique -->
+    <div class="mt-5">
+      <h5 class="text-center text-royal mb-3">Répartition des fidèles par ville</h5>
+      <canvas id="graphFideles"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <p>© 2026 Église Montagne Sainte | Administration | Tous droits réservés</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const tableBody = document.querySelector('#tableFideles tbody');
+  const fideleForm = document.getElementById('fideleForm');
+  const graphCtx = document.getElementById('graphFideles').getContext('2d');
+
+  let fideles = JSON.parse(localStorage.getItem('fideles')) || [];
+
+  function renderTable() {
+    tableBody.innerHTML = '';
+    fideles.forEach((fidele, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${index + 1}</td><td>${fidele.nom}</td><td>${fidele.age}</td><td>${fidele.ville}</td>`;
+      tableBody.appendChild(tr);
+    });
+  }
+
+  let chartFideles;
+  function renderChart() {
+    const villes = {};
+    fideles.forEach(f => { villes[f.ville] = (villes[f.ville] || 0) + 1; });
+    const labels = Object.keys(villes);
+    const data = Object.values(villes);
+
+    if(chartFideles) chartFideles.destroy();
+    chartFideles = new Chart(graphCtx, {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ label: 'Nombre de fidèles', data: data, backgroundColor: 'rgba(13, 71, 161, 0.7)', borderColor: 'rgba(13, 71, 161, 1)', borderWidth: 1 }] },
+      options: { responsive: true, plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }, scales: { y: { beginAtZero: true } } }
+    });
+  }
+
+  fideleForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const nom = document.getElementById('nom').value;
+    const age = parseInt(document.getElementById('age').value);
+    const ville = document.getElementById('ville').value;
+    fideles.push({ nom, age, ville });
+    localStorage.setItem('fideles', JSON.stringify(fideles));
+    fideleForm.reset();
+    renderTable();
+    renderChart();
+    bootstrap.Modal.getInstance(document.getElementById('addFideleModal')).hide();
+  });
+
+  renderTable();
+  renderChart();
+</script>
+</body>
+</html>
