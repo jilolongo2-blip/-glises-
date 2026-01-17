@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Église  | Excellence & Foi</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Lora:italic,wght@0,400;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0a4275;
+            --gold: #b89550;
+            --dark-navy: #051c33;
+            --soft-bg: #f8f9fa;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3, .navbar-brand { font-family: 'Lora', serif; }
+
+        /* --- UI Components --- */
+        .btn-premium {
+            background: var(--primary-blue);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-premium:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- Sections Style --- */
+        .hero {
+            background: linear-gradient(rgba(10, 66, 117, 0.75), rgba(10, 66, 117, 0.75)), 
+                        url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2000') fixed center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 20px auto;
+        }
+
+        .glass-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* --- Contact Form --- */
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#" style="color: var(--primary-blue);">
+                <i class="bi bi-cross me-2"></i>MONTAGNE SAINTE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#propos">À Propos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#programme">Programme</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#bibliotheque">Bibliothèque</a></li>
+                    <li class="nav-item"><a class="btn btn-premium btn-sm ms-lg-3 py-2 px-4" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="accueil">
+        <div class="container" data-aos="zoom-out" data-aos-duration="1200">
+            <h1 class="display-1 fw-bold mb-4">Une Foi Vivante</h1>
+            <p class="lead fs-3 mb-5 fw-light">Rejoignez-nous pour expérimenter la présence de Dieu et la chaleur d'une famille.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#programme" class="btn btn-premium">Nos Horaires</a>
+                <a href="#propos" class="btn btn-outline-light rounded-pill px-5 py-3">Découvrir</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5" id="propos">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="position-relative">
+                        
+                        <div class="bg-white p-4 shadow-lg rounded-4 position-absolute bottom-0 end-0 m-4 d-none d-md-block" data-aos="fade-up" data-aos-delay="400">
+                            <h4 class="text-primary fw-bold mb-0">20+ Ans</h4>
+                            <p class="small text-muted mb-0">Au service de la ville</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h2 class="section-title text-start mb-4">Notre Mission & Vision</h2>
+                    <p class="fs-5 text-muted">Porter l'évangile avec intégrité et servir notre communauté par l'amour concret.</p>
+                    <p>Nous croyons que chaque individu a un but divin. Notre église offre un environnement sain pour découvrir, développer et déployer vos talents pour le Royaume.</p>
+                    <div class="row g-4 mt-2">
+                        <div class="col-6">
+                            <div class="p-3 border-start border-4 border-primary bg-light">
+                                <h5 class="fw-bold mb-1">Communion</h5>
+                                <p class="small mb-0">Une famille unie en Christ.</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border-start border-4 border-warning bg-light">
+                                <h5 class="fw-bold mb-1">Croissance</h5>
+                                <p class="small mb-0">Enseignements bibliques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="programme">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-up">Agenda Spirituel</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="table-responsive shadow-lg rounded-4 overflow-hidden">
+                        <table class="table table-hover bg-white mb-0">
+                            <thead style="background: var(--primary-blue); color: white;">
+                                <tr class="text-center">
+                                    <th class="p-4">Événement</th>
+                                    <th class="p-4">Jour</th>
+                                    <th class="p-4">Heure</th>
+                                    <th class="p-4">Lieu</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td class="p-4 fw-bold">Grand Culte Dominical</td>
+                                    <td class="p-4">Dimanche</td>
+                                    <td class="p-4 text-primary fw-bold">09:00 - 12:00</td>
+                                    <td class="p-4">Temple Principal</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 fw-bold">École de la Parole</td>
+                                    <td class="p-4">Mercredi</td>
+                                    <td class="p-4 text-primary fw-bold">18:00 - 19:30</td>
+                                    <td class="p-4">Salle des Actes</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 fw-bold">Soirée d'Intercession</td>
+                                    <td class="p-4">Vendredi</td>
+                                    <td class="p-4 text-primary fw-bold">18:00 - 19:30</td>
+                                    <td class="p-4">Temple Principal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="bibliotheque">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-up">Bibliothèque & Ressources</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card glass-card p-4 text-center">
+                        <i class="bi bi-journal-bookmark fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">Affermissement</h4>
+                        <p class="text-muted small">Les 12 leçons fondamentales pour poser les bases de votre foi.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill px-4 mt-3">Lire le PDF</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card glass-card p-4 text-center">
+                        <i class="bi bi-mic fs-1 text-warning mb-3"></i>
+                        <h4 class="fw-bold">Derniers Sermons</h4>
+                        <p class="text-muted small">Réécoutez les messages inspirants de nos cultes dominicaux.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill px-4 mt-3">Écouter l'Audio</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card glass-card p-4 text-center">
+                        <i class="bi bi-people fs-1 text-success mb-3"></i>
+                        <h4 class="fw-bold">Cours Leadership</h4>
+                        <p class="text-muted small">Un programme complet pour ceux qui désirent servir dans l'église.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill px-4 mt-3">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="contact">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h2 class="fw-bold mb-4">Besoin de Prière ?</h2>
+                    <p class="text-muted mb-4">Notre équipe pastorale est disponible pour vous écouter et prier avec vous.</p>
+                    <div class="d-flex mb-3">
+                        <i class="bi bi-geo-alt text-primary fs-4 me-3"></i>
+                        <p>123 Avenue de la Paix, 75000 Paris</p>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="bi bi-envelope text-primary fs-4 me-3"></i>
+                        <p>contact@eglise-esperance.fr</p>
+                    </div>
+                    <div class="d-flex">
+                        <i class="bi bi-telephone text-primary fs-4 me-3"></i>
+                        <p>+33 1 23 45 67 89</p>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="card border-0 shadow-lg p-4 rounded-4">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Nom complet"></div>
+                                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email"></div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Sujet de votre message">
+                            <textarea class="form-control" rows="5" placeholder="Votre message ou requête de prière..."></textarea>
+                            <button type="submit" class="btn btn-premium w-100 mt-2">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-white pt-5 pb-3" style="background: var(--dark-navy);">
+        <div class="container pt-4">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="fw-bold mb-4" style="color: var(--gold);"><i class="bi bi-cross me-2"></i>Montagne sainte</h3>
+                    <p class="opacity-75">Bâtir une communauté solide, fondée sur la parole de Dieu et l'amour fraternel.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 ms-auto">
+                    <h5 class="fw-bold mb-4">Liens</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-2"><a href="#accueil" class="text-white text-decoration-none">Accueil</a></li>
+                        <li class="mb-2"><a href="#propos" class="text-white text-decoration-none">Vision</a></li>
+                        <li class="mb-2"><a href="#programme" class="text-white text-decoration-none">Agenda</a></li>
+                    </ul>
+                </div>
+                
+                </div>
+            </div>
+            <hr class="mt-5 mb-4 border-secondary opacity-25">
+            <p class="text-center small opacity-50">&copy; 2026 Église montagne sainte. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
